@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   root "ideas#index"
+
+  namespace "api", defaults: { format: :json } do
+    namespace :v1 do
+      get "/ideas", to: "ideas#index"
+    end
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
