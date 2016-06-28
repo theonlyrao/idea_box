@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   namespace "api", defaults: { format: :json } do
     namespace :v1 do
       get "/ideas", to: "ideas#index"
+      post "/ideas", to: "ideas#create"
     end
   end
-  
+
+  get "/ideas/:id", to: "ideas#show", as: :idea
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
