@@ -29,4 +29,11 @@ RSpec.describe "IdeasController", type: :request do
       expect(idea["quality"]).to eq("swill")
     end
   end
+
+  describe "DELETE /ideas/:id" do
+    it "deletes the idea" do
+      target = Idea.last
+      expect { delete "/api/v1/ideas/#{target.id}" }.to change(Idea, :count).by(-1)
+    end
+  end
 end

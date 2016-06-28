@@ -8,6 +8,11 @@ class Api::V1::IdeasController < ApiController
     respond_with Idea.create!(idea_params)
   end
 
+  def destroy
+    Idea.destroy(params[:id])
+    render json: {}, status: :no_content
+  end
+
   private
 
   def idea_params
