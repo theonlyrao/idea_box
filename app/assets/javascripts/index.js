@@ -64,6 +64,35 @@ $(document).ready(function(){
 	})
     })
 
+    var contents = $(".idea-list").html();
+    $(".idea-list").delegate(".idea-title", "blur", function() {
+	if (contents != $(".idea-list").html()){
+            var newTitle = $(this).html();
+	    var ideaId = $(this).parent().parent().data("id");
+	    $.ajax({
+		type: "PATCH",
+		url: "api/v1/ideas/" + ideaId,
+		data: { idea: { title: newTitle } },
+		dataType: "json",
+		success: null
+	    })
+	}
+    });
+
+    $(".idea-list").delegate(".idea-body", "blur", function() {
+	if (contents != $(".idea-list").html()){
+            var newBody = $(this).html();
+	    var ideaId = $(this).parent().data("id");
+	    $.ajax({
+		type: "PATCH",
+		url: "api/v1/ideas/" + ideaId,
+		data: { idea: { body: newBody } },
+		dataType: "json",
+		success: null
+	    })
+	}
+    });
+
 
     function thumbsUp(currentQuality){
 	if (currentQuality === "swill"){
@@ -90,7 +119,7 @@ $(document).ready(function(){
     }
 
     function displayIdea(idea){
-	$(".idea-list").prepend("<div class='card card-block' id=" + idea.id + " data-id=" + idea.id + "><h4 class='card-title'>" + idea.title + ",<div id=quality>"  + idea.quality + "</div></h4><p class='card-text'>" + idea.body + "</p><a class='card-link delete'>Delete</a><a class='card-link thumbs-up'>Thumbs Up</a><a class='card-link thumbs-down'>Thumbs Down</a></div>")
+	$(".idea-list").prepend("<div class='card card-block' id=" + idea.id + " data-id=" + idea.id + "><h4 class='card-title'><div class=idea-title contenteditable='true'>" + idea.title + "</div><div id=quality>"  + idea.quality + "</div></h4><p class='card-text idea-body' contenteditable='true'>" + idea.body + "</p><a class='card-link delete'>Delete</a><a class='card-link thumbs-up'>Thumbs Up</a><a class='card-link thumbs-down'>Thumbs Down</a></div>")
     };
 
     function displayIdeas(ideas) {
