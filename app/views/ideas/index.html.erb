@@ -23,9 +23,18 @@
 
 <div class="card card-inverse card-success text-center title-card page-title your-ideas-title">	
   <div class="card-block">
-    <h1>Your Ideas</h1>
+    <row>
+      <h1 class="col-md-6">Your Ideas</h1>
+      <form class="form-inline search col-md-6">
+	<div class="form-group">
+	  <label class="sr-only" for="search">Search</label>
+	  <input type="search" class="form-control" id="search" placeholder="Type to search ideas">
+	</div>
+      </form>
+    </row>
   </div> <!-- page-title -->
 </div>
+
 
 <div class="idea-list card-deck-wrapper">
 </div>
