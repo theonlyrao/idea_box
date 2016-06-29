@@ -34,6 +34,7 @@ gem "faraday"
 gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 gem 'responders'
 gem "bootstrap", "~> 4.0.0.alpha3"
+gem "selenium-webdriver"
 
 group :production do
   gem "rails_12factor"
