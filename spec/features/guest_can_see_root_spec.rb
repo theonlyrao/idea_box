@@ -8,7 +8,7 @@ RSpec.feature "GuestCanSeeRoot", type: :feature do
       expect(page).to have_content("IdeaBox")
     end
 
-    within ".ideas" do
+    within "h1" do
       expect(page).to have_content("Your Ideas")
     end
   end
