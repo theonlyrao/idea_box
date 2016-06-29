@@ -5,7 +5,7 @@ RSpec.feature "GuestCanCreateIdeas", type: :feature do
     visit root_path
     within ".new-idea" do
       fill_in "Title", with: "A new idea title"
-      fill_in "Describe the idea", with: "A new idea body"
+      fill_in "Body", with: "A new idea body"
       click_button "Save"
     end
 

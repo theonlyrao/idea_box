@@ -28,8 +28,10 @@ $(document).ready(function(){
 });
 
 var displayIdea = function(idea){
-    $(".idea-list").prepend("<p>title: " + idea.title  + ", " + "quality: " + idea.quality + ", " + "body: " + idea.body + "</p>")
-}
+    $(".idea-list").prepend("<div class='card card-block' id=idea-" + idea.id + "><h4 class='card-title'>" + idea.title + ", "  + idea.quality + "</h4><p class='card-text'>" + idea.body + "</p><a href='#' class='card-link'>Delete</a><a href='#' class='card-link'>Thumbs Up</a><a href='#' class='card-link'>Thumbs Down</a></div>")
+};
+
+
 
 var displayIdeas = function(ideas) {
     ideas.forEach(function(idea){
