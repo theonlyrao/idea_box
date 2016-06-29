@@ -35,9 +35,23 @@ $(document).ready(function(){
 	    success: deleteIdea(ideaId)
 	})
     })
-    
+
+    $(".idea-list").delegate(".thumbs-up", "click", function(){
+	currentQuality = $(this).parent().find("#quality").text()
+	$(this).parent().find("#quality").text(thumbsUp(currentQuality))
+    })
+
+    function thumbsUp(currentQuality){
+	if (currentQuality === "swill"){
+	    return "plausible";
+	}
+	else if (currentQuality === "plausible"){
+	    return "genius";
+	}
+    }
+
     function displayIdea(idea){
-	$(".idea-list").prepend("<div class='card card-block' id=" + idea.id + " data-id=" + idea.id + "><h4 class='card-title'>" + idea.title + ", "  + idea.quality + "</h4><p class='card-text'>" + idea.body + "</p><a class='card-link delete'>Delete</a><a href='#' class='card-link'>Thumbs Up</a><a href='#' class='card-link'>Thumbs Down</a></div>")
+	$(".idea-list").prepend("<div class='card card-block' id=" + idea.id + " data-id=" + idea.id + "><h4 class='card-title'>" + idea.title + ",<div id=quality>"  + idea.quality + "</div></h4><p class='card-text'>" + idea.body + "</p><a class='card-link delete'>Delete</a><a class='card-link thumbs-up'>Thumbs Up</a><a href='#' class='card-link'>Thumbs Down</a></div>")
     };
 
     function displayIdeas(ideas) {
