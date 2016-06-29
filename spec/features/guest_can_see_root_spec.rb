@@ -4,11 +4,11 @@ RSpec.feature "GuestCanSeeRoot", type: :feature do
   scenario "guest visits root path" do
     visit root_path
 
-    within ".navbar" do
-      expect(page).to have_content("IdeaBox")
+    within ".new-idea-title" do
+      expect(page).to have_content("New Idea")
     end
 
-    within "h1" do
+    within ".your-ideas-title" do
       expect(page).to have_content("Your Ideas")
     end
   end

@@ -1,3 +1,10 @@
+<div class="card card-inverse card-info text-center title-card page-title new-idea-title">	
+  <div class="card-block">
+    <h1>Add A New Idea</h1>
+  </div> <!-- page-title -->
+</div>
+
+
 <form class="new-idea">
   <fieldset class="form-group">
     <label for="title">Title</label>
@@ -5,7 +12,7 @@
   </fieldset>
   <fieldset class="form-group">
     <label for="quality">Quality</label>
-    <input type="text" class="form-control" id="quality" placeholder="Genius, plausible, or swill">
+    <input type="text" class="form-control" id="quality" placeholder="Genius, plausible, or swill (optional)">
   </fieldset>
   <fieldset class="form-group">
     <label for="body">Body</label>
@@ -14,11 +21,11 @@
   <button type="button" class="btn btn-primary" id="save-button">Save</button>
 </form>
 
-<div class="card card-inverse card-success text-center title-card page-title">	
+<div class="card card-inverse card-success text-center title-card page-title your-ideas-title">	
   <div class="card-block">
     <h1>Your Ideas</h1>
   </div> <!-- page-title -->
 </div>
 
-<div class="idea-list card-columns">
+<div class="idea-list card-deck-wrapper">
 </div>
