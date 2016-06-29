@@ -37,8 +37,17 @@ $(document).ready(function(){
     })
 
     $(".idea-list").delegate(".thumbs-up", "click", function(){
-	currentQuality = $(this).parent().find("#quality").text()
-	$(this).parent().find("#quality").text(thumbsUp(currentQuality))
+	var ideaId = $(this).parent().data("id");
+	var currentQuality = $(this).parent().find("#quality").text()
+	var newQuality = thumbsUp(currentQuality)
+	$(this).parent().find("#quality").text(newQuality)
+	$.ajax({
+	    type: "PATCH",
+	    url: "api/v1/ideas/" + ideaId,
+	    data: { idea: { quality: newQuality } },
+	    dataType: "json",
+	    success: null
+	})
     })
 
     function thumbsUp(currentQuality){
@@ -47,6 +56,9 @@ $(document).ready(function(){
 	}
 	else if (currentQuality === "plausible"){
 	    return "genius";
+	}
+	else {
+	    return currentQuality;
 	}
     }
 
