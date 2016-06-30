@@ -1,3 +1,9 @@
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+
 function searchIdeasListener(){
     $("#search").keyup(function(){
 	var text = $(this).val();
