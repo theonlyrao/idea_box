@@ -1,7 +1,9 @@
 $(document).ready(function(){
+    var ideaList = $(".idea-list");
+    
     getIdeas();
     saveIdeaListener();
-    deleteIdeaListener();
+    deleteIdeaListener(ideaList);
     changeQualityListener();
     editIdeaListener();
     searchIdeasListener();

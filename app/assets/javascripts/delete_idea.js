@@ -1,5 +1,5 @@
-function deleteIdeaListener(){
-    $(".idea-list").delegate(".delete", "click", function(){
+function deleteIdeaListener(ideaList){
+    ideaList.delegate(".delete", "click", function(){
 	var ideaId = $(this).parent().data("id");
 	$.ajax({
 	    type: "DELETE",
