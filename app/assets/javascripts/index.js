@@ -1,16 +1,7 @@
 $(document).ready(function(){
     getIdeas();
     saveIdeaListener();
-
-    $(".idea-list").delegate(".delete", "click", function(){
-	var ideaId = $(this).parent().data("id");
-	$.ajax({
-	    type: "DELETE",
-	    url: "/api/v1/ideas/" + ideaId,
-	    dataType: "json",
-	    success: deleteIdea(ideaId)
-	})
-    })
+    deleteIdeaListener();
 
     $(".idea-list").delegate(".thumbs-up", "click", function(){
 	var ideaId = $(this).parent().data("id");
@@ -102,10 +93,5 @@ $(document).ready(function(){
 	    return currentQuality;
 	}
     }
-
-    function deleteIdea(ideaId){
-	$(".card#" + ideaId).remove();
-    }
-
 });
 
