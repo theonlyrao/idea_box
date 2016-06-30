@@ -1,11 +1,11 @@
 $(document).ready(function(){
-    var ideaList = $(".idea-list");
-    
     getIdeas();
+
+    var $ideaList = $(".idea-list");    
     saveIdeaListener();
-    deleteIdeaListener(ideaList);
-    changeQualityListener(ideaList);
-    editIdeaListener();
+    deleteIdeaListener($ideaList);
+    changeQualityListener($ideaList);
+    editIdeaListener($ideaList);
     searchIdeasListener();
 });
 

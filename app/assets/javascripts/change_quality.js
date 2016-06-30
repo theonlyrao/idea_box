@@ -1,5 +1,5 @@
-function changeQualityListener(ideaList){
-    ideaList.delegate(".thumbs-up", "click", function(){
+function changeQualityListener($ideaList){
+    $ideaList.delegate(".thumbs-up", "click", function(){
 	var ideaId = $(this).parent().data("id");
 	var currentQuality = $(this).parent().find("#quality").text()
 	var newQuality = thumbsUp(currentQuality)
@@ -13,7 +13,7 @@ function changeQualityListener(ideaList){
 	})
     })
 
-    ideaList.delegate(".thumbs-down", "click", function(){
+    $ideaList.delegate(".thumbs-down", "click", function(){
 	var ideaId = $(this).parent().data("id");
 	var currentQuality = $(this).parent().find("#quality").text()
 	var newQuality = thumbsDown(currentQuality)

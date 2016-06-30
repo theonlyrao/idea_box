@@ -1,7 +1,7 @@
-function editIdeaListener(){
-    var contents = $(".idea-list").html();
-    $(".idea-list").delegate(".idea-title", "blur", function() {
-	if (contents != $(".idea-list").html()){
+function editIdeaListener($ideaList){
+    var contents = $ideaList.html();
+    $ideaList.delegate(".idea-title", "blur", function() {
+	if (contents != $ideaList.html()){
             var newTitle = $(this).html();
 	    var ideaId = $(this).parent().parent().data("id");
 	    $.ajax({
@@ -14,8 +14,8 @@ function editIdeaListener(){
 	}
     });
 
-    $(".idea-list").delegate(".idea-body", "blur", function() {
-	if (contents != $(".idea-list").html()){
+    $ideaList.delegate(".idea-body", "blur", function() {
+	if (contents != $ideaList.html()){
             var newBody = $(this).html();
 	    var ideaId = $(this).parent().data("id");
 	    $.ajax({
