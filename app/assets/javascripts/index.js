@@ -4,7 +4,7 @@ $(document).ready(function(){
     getIdeas();
     saveIdeaListener();
     deleteIdeaListener(ideaList);
-    changeQualityListener();
+    changeQualityListener(ideaList);
     editIdeaListener();
     searchIdeasListener();
 });
