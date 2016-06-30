@@ -2,7 +2,7 @@ function saveIdeaListener() {
     $("#save-button").click(function(){
 	var newTitle = $("#title").val();
 	var newBody = $("#body").val();
-	var qualityParser = $("#quality").val();
+	var qualityParser = $("#quality").val().toLowerCase();
 	if (qualityParser === ""){
 	    var newQuality = "swill";
 	}
