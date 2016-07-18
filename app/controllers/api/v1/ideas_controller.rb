@@ -5,7 +5,10 @@ class Api::V1::IdeasController < ApiController
   end
 
   def create
-    respond_with Idea.create!(idea_params)
+    new_title = ActiveRecord::Base::sanitize(idea_params["title"]).delete("'")
+    new_quality = ActiveRecord::Base::sanitize(idea_params["quality"]).delete("'")
+    new_body = ActiveRecord::Base::sanitize(idea_params["body"]).delete("'")
+    respond_with Idea.create!(title: new_title, quality: new_quality, body: new_body)
   end
 
   def destroy
